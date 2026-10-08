@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,18 +33,18 @@ public class Agence {
     @Column(nullable = false, length = 100)
     private String ville;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String adresse;
 
     @Column(nullable = false, length = 20)
     private String telephone;
 
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Employe> employes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agence")
+    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Reservation> reservations = new ArrayList<>();
 }
