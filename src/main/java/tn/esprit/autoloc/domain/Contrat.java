@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -47,5 +48,6 @@ public class Contrat {
 
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL,
             orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference("contrat-paiements")
     private List<Paiement> paiements = new ArrayList<>();
 }

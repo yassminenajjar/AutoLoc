@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import tn.esprit.autoloc.domain.Contrat;
 import tn.esprit.autoloc.service.IContratService;
 
 @RestController
-@RequestMapping("/api/contrats")
+@RequestMapping("/contrats")
 @RequiredArgsConstructor
+@Tag(name = "Contrats", description = "Gestion des contrats de location")
 public class ContratController {
     private final IContratService contratService;
 

@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
@@ -58,9 +59,11 @@ public class Vehicule {
     private Agence agence;
 
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Reservation> reservations = new ArrayList<>();
 
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Maintenance> maintenances = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -69,5 +72,6 @@ public class Vehicule {
             joinColumns = @JoinColumn(name = "id_vehicule"),
             inverseJoinColumns = @JoinColumn(name = "id_equipement")
     )
+    @JsonIgnore
     private List<Equipement> equipements = new ArrayList<>();
 }

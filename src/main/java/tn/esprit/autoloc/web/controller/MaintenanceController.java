@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import tn.esprit.autoloc.domain.Maintenance;
 import tn.esprit.autoloc.service.IMaintenanceService;
 
 @RestController
-@RequestMapping("/api/maintenances")
+@RequestMapping("/maintenances")
 @RequiredArgsConstructor
+@Tag(name = "Maintenances", description = "Gestion des maintenances")
 public class MaintenanceController {
     private final IMaintenanceService maintenanceService;
 

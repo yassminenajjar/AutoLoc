@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import tn.esprit.autoloc.domain.Paiement;
 import tn.esprit.autoloc.service.IPaiementService;
 
 @RestController
-@RequestMapping("/api/paiements")
+@RequestMapping("/paiements")
 @RequiredArgsConstructor
+@Tag(name = "Paiements", description = "Consultation des paiements")
 public class PaiementController {
     private final IPaiementService paiementService;
 

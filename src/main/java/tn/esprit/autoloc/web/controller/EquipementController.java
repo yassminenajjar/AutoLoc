@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import tn.esprit.autoloc.domain.Equipement;
 import tn.esprit.autoloc.service.IEquipementService;
 
 @RestController
-@RequestMapping("/api/equipements")
+@RequestMapping("/equipements")
 @RequiredArgsConstructor
+@Tag(name = "Equipements", description = "Gestion des équipements")
 public class EquipementController {
     private final IEquipementService equipementService;
 

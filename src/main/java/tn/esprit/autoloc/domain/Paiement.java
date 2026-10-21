@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -40,5 +41,6 @@ public class Paiement {
     private ModePaiement modePaiement;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonBackReference("contrat-paiements")
     private Contrat contrat;
 }
