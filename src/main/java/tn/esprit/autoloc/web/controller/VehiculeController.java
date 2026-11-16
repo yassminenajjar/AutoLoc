@@ -49,4 +49,29 @@ public class VehiculeController {
     public void deleteById(@PathVariable Long id) {
         vehiculeService.deleteById(id);
     }
+
+    @PutMapping("/{vehiculeId}/agence/{agenceId}")
+    public Vehicule assignAgence(@PathVariable Long vehiculeId, @PathVariable Long agenceId) {
+        return vehiculeService.assignAgence(vehiculeId, agenceId);
+    }
+
+    @PutMapping("/{vehiculeId}/equipement/{equipementId}")
+    public Vehicule assignEquipment(
+            @PathVariable Long vehiculeId, @PathVariable Long equipementId) {
+        return vehiculeService.assignEquipment(vehiculeId, equipementId);
+    }
+
+    @DeleteMapping("/{vehiculeId}/equipement/{equipementId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void unassignEquipment(
+            @PathVariable Long vehiculeId, @PathVariable Long equipementId) {
+        vehiculeService.unassignEquipment(vehiculeId, equipementId);
+    }
+
+    @PostMapping("/agence/{agenceId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Vehicule addAndAssignAgence(
+            @RequestBody Vehicule vehicule, @PathVariable Long agenceId) {
+        return vehiculeService.addAndAssignAgence(vehicule, agenceId);
+    }
 }

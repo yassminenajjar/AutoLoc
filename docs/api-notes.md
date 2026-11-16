@@ -15,11 +15,11 @@ uniquement de leur interface de service.
 | MaintenanceController | GET/POST/PUT/DELETE `/maintenances[/{id}]` | IMaintenanceService | 200/201/204 | 400/404 |
 | PaiementController | GET `/paiements[/{id}]` | IPaiementService | 200 | 404, 405 |
 | ReservationController | GET/POST/PUT/DELETE `/reservations[/{id}]` | IReservationService | 200/201/204 | 400/404 |
-| VehiculeController | GET/POST/PUT/DELETE `/vehicules[/{id}]` | IVehiculeService | 200/201/204 | 400/404 |
+| VehiculeController | GET/POST/PUT/DELETE `/vehicules[/{id}]`, POST `/vehicules/agence/{agenceId}`, PUT/DELETE `/vehicules/{vehiculeId}/equipement/{equipementId}` | IVehiculeService | 200/201/204 | 400/404 |
 
 La documentation interactive est disponible sur
-`http://localhost:8080/api/swagger-ui.html` et le document OpenAPI sur
-`http://localhost:8080/api/v3/api-docs`.
+`http://localhost:8081/api/swagger-ui.html` et le document OpenAPI sur
+`http://localhost:8081/api/v3/api-docs`.
 
 ## B. Annotations Jackson
 
